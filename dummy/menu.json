@@ -1,0 +1,45 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "img": "1111",
+        "name": "당근",
+        "price": 7800,
+        "about": "당근 정보입니다",
+        "today": true
+      },
+      {
+        "id": 2,
+        "img": "1111",
+        "name": "당근",
+        "price": 7800,
+        "about": "당근 정보입니다",
+        "today": true
+      },
+      {
+        "id": 3,
+        "img": "1111",
+        "name": "당근",
+        "price": 7800,
+        "about": "당근 정보입니다",
+        "today": true
+      },
+      {
+        "id": 4,
+        "img": "1111",
+        "name": "당근",
+        "price": 7800,
+        "about": "당근 정보입니다",
+        "today": true
+      },
+      {
+        "id": 5,
+        "img": "1111",
+        "name": "당근",
+        "price": 7800,
+        "about": "당근 정보입니다",
+        "today": true
+      }
+    ]
+  }
+  
