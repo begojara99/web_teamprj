@@ -11,27 +11,46 @@
 <body>
 	<header>
 		<div id="logo">
-			<a href="./home.php">
+			<a href="./index.html">
 				<img src="./images/honghee.png" alt="홍희">
 			</a>
 		</div>
-		<a class="tab" href="./guide.php">매장 안내</a>
-		<a class="tab" href="./menu.php">메뉴 정보</a>
-		<a class="tab" href="./announce.php">공지사항</a>
+		<a class="tab" href="./guide.html">매장 안내</a>
+		<a class="tab" href="./menu.html">메뉴 정보</a>
+		<a class="tab" href="./announce.html">공지사항</a>
 	</header>
 	<div class="login-container">
-        <h4>관리자 로그인</h4>
+		<div>
+			<h4>관리자 로그인</h4>
+		</div>
         <div class="login-box">
             <label for="id">ID:</label>
             <input type="text" id="id" name="id" placeholder="Enter your ID">
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter your password">
+
+			<button id="login-btn" onclick="login()">Login</button>
         </div>
     </div>
 	<footer>
 		<p>© 2023 Simple Page</p>
 	</footer>
+	<script>
+		
+        function login() {
+            var inputId = document.getElementById('id').value;
+            var inputPassword = document.getElementById('password').value;
+
+            if (inputId === 'admin' && inputPassword === '1234') {
+                localStorage.setItem('auth', 'true');
+
+                window.location.href = './index.html';
+            } else {
+                alert('로그인 정보가 틀렸습니다. 다시 입력해주세요.');
+            }
+        }
+    </script>
 
 </body>
 </html>

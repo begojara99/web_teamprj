@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>honghee</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/announce.css">
+	<script src="home.js" type="text/javascript"></script>
+</head>
+<body>
+	<header>
+		<div>
+			<a href="./index.html">
+				<img src="./images/honghee.png" alt="홍희">
+			</a>
+		</div>
+		<a class="tab"  href="./guide.html">매장 안내</a>
+		<a class="tab"  href="./menu.html">메뉴 정보</a>
+		<a class="tab"  href="./announce.html">공지사항</a>
+	</header>
+	<div class="update-box">
+	</div>
+	<div class="announce-container">
+		<div class="announce-box event-box">
+			<h4>이벤트 안내</h4>
+
+		</div>
+		<div class="announce-box notice-box">
+			<h4>공지 사항 안내</h4>
+		</div>
+	</div>
+	<footer>
+		<p>© 2023 Simple Page</p>
+	</footer>
+	<script>
+		window.onload = function() {
+			checkAuth();
+		};
+
+		function checkAuth() {
+			var isAuthenticated = localStorage.getItem('auth');
+			var itemActions = document.querySelectorAll('.item-actions');
+	
+			if (isAuthenticated === 'true') {
+				itemActions.forEach(action => {
+					action.removeAttribute('hidden');
+				});
+				createDeleteButton();
+        		createAddButton();
+			}
+		}
+
+		const eventData = {
+			"data": [
+			{
+				"id": 1,
+				"content": "1번 내용"
+			},
+			{
+				"id": 2,
+				"content": "2번 내용"
+			},
+			{
+				"id": 3,
+				"content": "3번 내용"
+			},
+			{
+				"id": 4,
+				"content": "4번 내용"
+			},
+			]
+		}
+		const noticeData = {
+			"data": [
+			{
+				"id": 1,
+				"content": "1번 내용"
+			},
+			{
+				"id": 2,
+				"content": "2번 내용"
+			},
+			{
+				"id": 3,
+				"content": "3번 내용"
+			},
+			{
+				"id": 4,
+				"content": "4번 내용"
+			},
+			]
+		}
+
+		const eventAnnounceBox = document.querySelector('.event-box');
+		const noticeAnnounceBox = document.querySelector('.notice-box');
+
+		eventData.data.forEach(item => {
+			const eventItem = document.createElement('p');
+			eventItem.classList.add('announce-item');
+	
+			eventItem.innerHTML = `
+				<div class="item-container">
+					<input type="checkbox" class="item-checkbox">
+					<p>${item.content}</p>		
+				</div>
+			`;
+	
+			eventAnnounceBox.appendChild(eventItem);
+		});
+
+		noticeData.data.forEach(item => {
+			const noticeItem = document.createElement('p');
+			noticeItem.classList.add('announce-item');
+	
+			noticeItem.innerHTML = `
+				<div class="item-container">
+					<input type="checkbox" class="item-checkbox">
+					<p>${item.content}</p>		
+				</div>		
+			`;
+	
+			noticeAnnounceBox.appendChild(noticeItem);
+		});
+
+		// 삭제
+		function createDeleteButton() {
+			const deleteButton = document.createElement('button');
+			deleteButton.innerText = '삭제';
+			deleteButton.addEventListener('click', () => {
+				const checkedItems = document.querySelectorAll('.item-checkbox:checked');
+				const checkedItemIds = Array.from(checkedItems).map(item => parseInt(item.closest('.announce-item').dataset.id));
+
+				menuData.data = menuData.data.filter(item => !checkedItemIds.includes(item.id));
+
+				checkedItems.forEach(item => item.closest('.announce-item').remove());
+				console.log("삭제",checkedItems);
+			});
+
+			const updateBox = document.querySelector('.update-box');
+			updateBox.appendChild(deleteButton);
+		}
+
+		// 추가
+		function createAddButton() {
+			const addButton = document.createElement('button');
+			addButton.innerText = '추가';
+			addButton.addEventListener('click', () => {			
+				window.location.href = 'add-new-item.html';  // 추가하기 페이지 이동( 만들 예정 )
+			});
+		
+			const updateBox = document.querySelector('.update-box');
+			updateBox.appendChild(addButton);
+		}
+		
+	</script>
+
+</body>
+</html>
