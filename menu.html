@@ -48,10 +48,14 @@
 
 		function checkAuth() {
 			var isAuthenticated = localStorage.getItem('auth');
-			var itemActions = document.querySelectorAll('.item-checkbox');
+			var itemCheckbox = document.querySelectorAll('.item-checkbox');
+			var editBtn = document.querySelectorAll('#edit-btn');
 	
 			if (isAuthenticated === 'true') {
-				itemActions.forEach(action => {
+				itemCheckbox.forEach(action => {
+					action.removeAttribute('hidden');
+				});
+				editBtn.forEach(action => {
 					action.removeAttribute('hidden');
 				});
 				createDeleteButton();
@@ -158,7 +162,7 @@
                 <p>가격: ${item.price / 100}원</p>
                 <p>${item.info}</p>
             </div>
-			<button id="edit-btn">수정</button>  
+			<button id="edit-btn" hidden>수정</button>  
             
         `;
 

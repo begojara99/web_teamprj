@@ -40,10 +40,10 @@
 
 		function checkAuth() {
 			var isAuthenticated = localStorage.getItem('auth');
-			var itemActions = document.querySelectorAll('.item-actions');
+			var itemCheckboxes = document.querySelectorAll('.item-checkbox');
 	
 			if (isAuthenticated === 'true') {
-				itemActions.forEach(action => {
+				itemCheckboxes.forEach(action => {
 					action.removeAttribute('hidden');
 				});
 				createDeleteButton();
@@ -102,6 +102,7 @@
 			const checkbox = document.createElement('input');
 			checkbox.type = 'checkbox';
 			checkbox.classList.add('item-checkbox');
+			checkbox.setAttribute('hidden', true);
 
 			const contentParagraph = document.createElement('span');
 			contentParagraph.textContent = item.content;
@@ -119,6 +120,7 @@
 			const checkbox = document.createElement('input');
 			checkbox.type = 'checkbox';
 			checkbox.classList.add('item-checkbox');
+			checkbox.setAttribute('hidden', true);
 
 			const contentParagraph = document.createElement('span');
 			contentParagraph.textContent = item.content;
