@@ -1,0 +1,72 @@
+<!-- id는 알아서 1씩 더해서 넣어지도록
+이미지,이름,가격,정보 는 사용자가
+오늘의 메뉴는 신메뉴니까 디폴트 true -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>honghee</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/add_item.css">
+</head>
+<body>
+	<header>
+		<div>
+			<a href="./index.html">
+				<img src="./images/honghee.png" alt="홍희">
+			</a>
+		</div>
+		<a class="tab" href="./guide.html">매장 안내</a>
+		<a class="tab" href="./menu.html">메뉴 정보</a>
+		<a class="tab" href="./announce.html">공지사항</a>
+	</header>
+    <div id="center">
+        <div class="add-container">
+            <input class="add-item" type="file" id="imageInput" accept="image/*" multiple>
+            <input class="add-item" type="text" id="nameInput" placeholder="케이크 이름">
+            <input class="add-item" type="number" id="priceInput" placeholder="케이크 가격">
+            <textarea class="add-item" id="infoInput" placeholder="케이크 설명 입력해주세요." rows="4" cols="20"></textarea>
+            <button class="add-item" id="send-btn" onclick="sendToServer()">추가</button>
+        </div>
+    </div>
+    <footer>
+		<p>© 2023 Simple Page</p>
+	</footer>
+
+    <script>
+        function sendToServer() {
+            const imageFiles = document.getElementById('imageInput').files;
+            const name = document.getElementById('nameInput').value;
+            const price = document.getElementById('priceInput').value;
+            const info = document.getElementById('infoInput').value;
+        
+            const formData = new FormData();
+            formData.append('image', imageFiles);
+            formData.append('name', name);
+            formData.append('price', price);
+            formData.append('info', info);
+        
+            // 우리 서버로 바꾸기
+            /*
+            fetch('your_server_endpoint', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                
+                if (response.ok) {
+                    // 성공
+                    console.log('데이터 보내기 성공');
+                } else {
+                    console.error('데이터 보내기 실패');
+                }
+            })
+            .catch(error => {
+                console.error('에러:', error);
+            });
+            */
+        }
+    </script>
+</body>
+</html>

@@ -55,7 +55,7 @@
 			"data": [
 			{
 				"id": 1,
-				"content": "1번 내용"
+				"content": "1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용"
 			},
 			{
 				"id": 2,
@@ -96,31 +96,37 @@
 		const noticeAnnounceBox = document.querySelector('.notice-box');
 
 		eventData.data.forEach(item => {
-			const eventItem = document.createElement('p');
-			eventItem.classList.add('announce-item');
-	
-			eventItem.innerHTML = `
-				<div class="item-container">
-					<input type="checkbox" class="item-checkbox">
-					<p>${item.content}</p>		
-				</div>
-			`;
-	
-			eventAnnounceBox.appendChild(eventItem);
+			const itemContainer = document.createElement('div');
+			itemContainer.classList.add('item-container');
+
+			const checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			checkbox.classList.add('item-checkbox');
+
+			const contentParagraph = document.createElement('span');
+			contentParagraph.textContent = item.content;
+
+			itemContainer.appendChild(checkbox);
+			itemContainer.appendChild(contentParagraph);
+
+			eventAnnounceBox.appendChild(itemContainer);
 		});
 
 		noticeData.data.forEach(item => {
-			const noticeItem = document.createElement('p');
-			noticeItem.classList.add('announce-item');
-	
-			noticeItem.innerHTML = `
-				<div class="item-container">
-					<input type="checkbox" class="item-checkbox">
-					<p>${item.content}</p>		
-				</div>		
-			`;
-	
-			noticeAnnounceBox.appendChild(noticeItem);
+			const itemContainer = document.createElement('div');
+			itemContainer.classList.add('item-container');
+
+			const checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			checkbox.classList.add('item-checkbox');
+
+			const contentParagraph = document.createElement('span');
+			contentParagraph.textContent = item.content;
+
+			itemContainer.appendChild(checkbox);
+			itemContainer.appendChild(contentParagraph);
+
+			noticeAnnounceBox.appendChild(itemContainer);
 		});
 
 		// 삭제
@@ -146,7 +152,7 @@
 			const addButton = document.createElement('button');
 			addButton.innerText = '추가';
 			addButton.addEventListener('click', () => {			
-				window.location.href = 'add-new-item.html';  // 추가하기 페이지 이동( 만들 예정 )
+				window.location.href = 'add_announce.html';  // 추가하기 페이지 이동( 만들 예정 )
 			});
 		
 			const updateBox = document.querySelector('.update-box');

@@ -48,7 +48,7 @@
 
 		function checkAuth() {
 			var isAuthenticated = localStorage.getItem('auth');
-			var itemActions = document.querySelectorAll('.item-actions');
+			var itemActions = document.querySelectorAll('.item-checkbox');
 	
 			if (isAuthenticated === 'true') {
 				itemActions.forEach(action => {
@@ -66,7 +66,7 @@
 					"img": "1111",
 					"name": "케이크",
 					"price": 7800,
-					"about": "케이크 정보입니다",
+					"info": "케이크 정보입니다",
 					"today": true
 				},
 				{
@@ -74,7 +74,7 @@
 					"img": "1111",
 					"name": "케이크",
 					"price": 7800,
-					"about": "케이크 정보입니다",
+					"info": "케이크 정보입니다",
 					"today": true
 				},
 				{
@@ -82,7 +82,7 @@
 					"img": "1111",
 					"name": "케이크",
 					"price": 7800,
-					"about": "케이크 정보입니다",
+					"info": "케이크 정보입니다",
 					"today": true
 				},
 				{
@@ -90,7 +90,7 @@
 					"img": "1111",
 					"name": "케이크",
 					"price": 7800,
-					"about": "케이크 정보입니다",
+					"info": "케이크 정보입니다",
 					"today": true
 				},
 				{
@@ -98,7 +98,7 @@
 					"img": "1111",
 					"name": "케이크",
 					"price": 7800,
-					"about": "케이크 정보입니다",
+					"info": "케이크 정보입니다",
 					"today": true
 				},
 				{
@@ -106,7 +106,7 @@
 					"img": "1111",
 					"name": "케이크",
 					"price": 7800,
-					"about": "케이크 정보입니다",
+					"info": "케이크 정보입니다",
 					"today": true
 				},
 				{
@@ -114,7 +114,7 @@
 					"img": "1111",
 					"name": "케이크",
 					"price": 7800,
-					"about": "케이크 정보입니다",
+					"info": "케이크 정보입니다",
 					"today": true
 				},
 				{
@@ -122,7 +122,7 @@
 					"img": "1111",
 					"name": "케이크",
 					"price": 7800,
-					"about": "케이크 정보입니다",
+					"info": "케이크 정보입니다",
 					"today": true
 				},
 				{
@@ -130,7 +130,7 @@
 					"img": "1111",
 					"name": "케이크",
 					"price": 7800,
-					"about": "케이크 정보입니다",
+					"info": "케이크 정보입니다",
 					"today": true
 				},
 				{
@@ -138,7 +138,7 @@
 					"img": "1111",
 					"name": "케이크",
 					"price": 7800,
-					"about": "케이크 정보입니다",
+					"info": "케이크 정보입니다",
 					"today": true
 				}
 					]
@@ -152,15 +152,14 @@
 
 		menuItem.innerHTML = `
             <div class="item-content">
+				<input type="checkbox" class="item-checkbox" hidden>
                 <img src="${item.img}" alt="${item.name}">
                 <h3>${item.name}</h3>
                 <p>가격: ${item.price / 100}원</p>
-                <p>${item.about}</p>
+                <p>${item.info}</p>
             </div>
-            <div class="item-actions" hidden>
-                <input type="checkbox" class="item-checkbox">
-                <button class="edit-btn">수정</button>
-            </div>
+			<button id="edit-btn">수정</button>  
+            
         `;
 
 		menuContainer.appendChild(menuItem);
@@ -189,7 +188,7 @@
 			const addButton = document.createElement('button');
 			addButton.innerText = '추가';
 			addButton.addEventListener('click', () => {			
-				window.location.href = 'add-new-item.html';  // 추가하기 페이지 이동( 만들 예정 )
+				window.location.href = 'add_menu.html';  // 추가하기 페이지 이동( 만들 예정 )
 			});
 		
 			const updateBox = document.querySelector('.update-box');

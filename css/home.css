@@ -27,4 +27,6 @@ margin-bottom: 100px;
 .menu-item {
 width: 33%;
 border: red 1px solid;
+margin: 10px;
+padding: 10px;
 }

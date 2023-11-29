@@ -18,7 +18,9 @@ box-sizing: border-box;
 
 .item-container {
 display: flex;
+flex-direction: row;
 align-items: center;
+margin: 5px;
 }
 
 .item-container input {
