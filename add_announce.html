@@ -19,10 +19,22 @@
 		<a class="tab" href="./announce.html">공지사항</a>
 	</header>
     <div id="center">
-        <div class="add-container">
+        <form class="add-container" enctype="multipart/form-data">
+            <div class="radio-container">
+                <label for="event">이벤트</label>
+                <input type="radio" id="event" name="announcementType" value="event">
+    
+                <label for="notice">공지사항</label>
+                <input type="radio" id="notice" name="announcementType" value="notice">
+            </div>
+    
             <textarea class="add-item" id="announcement" placeholder="이곳에 입력해주세요" rows="4" cols="30"></textarea>
+    
+            <label for="fileUpload">파일 업로드</label>
+            <input type="file" id="fileUpload" name="fileUpload">
+    
             <button class="add-item" id="send-btn" onclick="sendToServer()">추가</button>
-        </div>
+        </form>
     </div>
     <footer>
 		<p>© 2023 Simple Page</p>

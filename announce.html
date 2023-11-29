@@ -55,19 +55,19 @@
 			"data": [
 			{
 				"id": 1,
-				"content": "1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용"
+				"title": "1번 내용1번 내용1번 내용1번 내용1번 내용1번 내용"
 			},
 			{
 				"id": 2,
-				"content": "2번 내용"
+				"title": "2번 내용"
 			},
 			{
 				"id": 3,
-				"content": "3번 내용"
+				"title": "3번 내용"
 			},
 			{
 				"id": 4,
-				"content": "4번 내용"
+				"title": "4번 내용"
 			},
 			]
 		}
@@ -75,19 +75,19 @@
 			"data": [
 			{
 				"id": 1,
-				"content": "1번 내용"
+				"title": "1번 내용"
 			},
 			{
 				"id": 2,
-				"content": "2번 내용"
+				"title": "2번 내용"
 			},
 			{
 				"id": 3,
-				"content": "3번 내용"
+				"title": "3번 내용"
 			},
 			{
 				"id": 4,
-				"content": "4번 내용"
+				"title": "4번 내용"
 			},
 			]
 		}
@@ -98,36 +98,26 @@
 		eventData.data.forEach(item => {
 			const itemContainer = document.createElement('div');
 			itemContainer.classList.add('item-container');
-
-			const checkbox = document.createElement('input');
-			checkbox.type = 'checkbox';
-			checkbox.classList.add('item-checkbox');
-			checkbox.setAttribute('hidden', true);
-
-			const contentParagraph = document.createElement('span');
-			contentParagraph.textContent = item.content;
-
-			itemContainer.appendChild(checkbox);
-			itemContainer.appendChild(contentParagraph);
-
+		
+			const content = `
+				<input type="checkbox" class="item-checkbox" hidden>
+				<a class="item-title" href="" style="color: black;">${item.title}</a>
+			`;
+		
+			itemContainer.innerHTML = content;
 			eventAnnounceBox.appendChild(itemContainer);
 		});
 
 		noticeData.data.forEach(item => {
 			const itemContainer = document.createElement('div');
 			itemContainer.classList.add('item-container');
-
-			const checkbox = document.createElement('input');
-			checkbox.type = 'checkbox';
-			checkbox.classList.add('item-checkbox');
-			checkbox.setAttribute('hidden', true);
-
-			const contentParagraph = document.createElement('span');
-			contentParagraph.textContent = item.content;
-
-			itemContainer.appendChild(checkbox);
-			itemContainer.appendChild(contentParagraph);
-
+		
+			const content = `
+				<input type="checkbox" class="item-checkbox" hidden>
+				<a class="item-title" href="" style="color: black;">${item.title}</a>
+			`;
+		
+			itemContainer.innerHTML = content;
 			noticeAnnounceBox.appendChild(itemContainer);
 		});
 
