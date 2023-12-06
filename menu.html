@@ -33,7 +33,9 @@
 		</div>
 		<div class="update-box">
 		</div>
-		<div class="menu-items"> 
+		<div class="center">
+			<div class="menu-items"> 
+			</div>
 		</div>
 	
 		<script>
@@ -94,82 +96,82 @@
 				"data": [
 					{
 						"id": 1,
-						"img": "1111",
-						"name": "케이크",
+						"img": "./images/hkimja.png",
+						"name": "보드리 흑임자",
 						"price": 7800,
-						"info": "케이크 정보입니다",
+						"info": "보드리 흑임자 정보입니다",
 						"today": true
 					},
 					{
 						"id": 2,
-						"img": "1111",
-						"name": "케이크",
+						"img": "./images/hkimja.png",
+						"name": "보드리 흑임자",
 						"price": 7800,
-						"info": "케이크 정보입니다",
+						"info": "보드리 흑임자 정보입니다",
 						"today": true
 					},
 					{
 						"id": 3,
-						"img": "1111",
-						"name": "케이크",
+						"img": "./images/hkimja.png",
+						"name": "보드리 흑임자",
 						"price": 7800,
-						"info": "케이크 정보입니다",
+						"info": "보드리 흑임자 정보입니다",
 						"today": true
 					},
 					{
 						"id": 4,
-						"img": "1111",
-						"name": "케이크",
+						"img": "./images/hkimja.png",
+						"name": "보드리 흑임자",
 						"price": 7800,
-						"info": "케이크 정보입니다",
+						"info": "보드리 흑임자 정보입니다",
 						"today": true
 					},
 					{
 						"id": 5,
-						"img": "1111",
-						"name": "케이크",
+						"img": "./images/hkimja.png",
+						"name": "보드리 흑임자",
 						"price": 7800,
-						"info": "케이크 정보입니다",
+						"info": "보드리 흑임자 정보입니다",
 						"today": true
 					},
 					{
 						"id": 6,
-						"img": "1111",
-						"name": "케이크",
+						"img": "./images/hkimja.png",
+						"name": "보드리 흑임자",
 						"price": 7800,
-						"info": "케이크 정보입니다",
+						"info": "보드리 흑임자 정보입니다",
 						"today": true
 					},
 					{
 						"id": 7,
-						"img": "1111",
-						"name": "케이크",
+						"img": "./images/hkimja.png",
+						"name": "보드리 흑임자",
 						"price": 7800,
-						"info": "케이크 정보입니다",
+						"info": "보드리 흑임자 정보입니다",
 						"today": true
 					},
 					{
 						"id": 8,
-						"img": "1111",
-						"name": "케이크",
+						"img": "./images/hkimja.png",
+						"name": "보드리 흑임자",
 						"price": 7800,
-						"info": "케이크 정보입니다",
+						"info": "보드리 흑임자 정보입니다",
 						"today": true
 					},
 					{
 						"id": 9,
-						"img": "1111",
-						"name": "케이크",
+						"img": "./images/hkimja.png",
+						"name": "보드리 흑임자",
 						"price": 7800,
-						"info": "케이크 정보입니다",
+						"info": "보드리 흑임자 정보입니다",
 						"today": true
 					},
 					{
 						"id": 10,
-						"img": "1111",
-						"name": "케이크",
+						"img": "./images/hkimja.png",
+						"name": "보드리 흑임자",
 						"price": 7800,
-						"info": "케이크 정보입니다",
+						"info": "보드리 흑임자 정보입니다",
 						"today": true
 					}
 						]
@@ -186,11 +188,10 @@
 					<input type="checkbox" class="item-checkbox" hidden>
 					<img src="${item.img}" alt="${item.name}">
 					<h3>${item.name}</h3>
-					<p>가격: ${item.price / 100}원</p>
-					<p>${item.info}</p>
+					<p>가격: ${item.price}원</p>
+					<p class="item-info">${item.info}</p>
 				</div>
-				<button id="edit-btn" hidden>수정</button>  
-				
+				<button id="edit-btn" hidden>수정</button>
 			`;
 
 			menuContainer.appendChild(menuItem);
@@ -225,6 +226,19 @@
 				const updateBox = document.querySelector('.update-box');
 				updateBox.appendChild(addButton);
 			}
+
+			const itemContents = document.querySelectorAll('.item-content');
+
+			itemContents.forEach(item => {
+				item.addEventListener('click', () => {
+					// Toggle the clicked class
+					item.classList.toggle('item-content-clicked');
+
+					// Toggle the visibility of item.info
+					const itemInfo = item.querySelector('.item-info');
+					itemInfo.classList.toggle('show-info');
+				});
+			});
 
 
 		</script>
