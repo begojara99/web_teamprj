@@ -31,9 +31,9 @@
 				<span id="close" class="close">&times;</span>
 			</div>
 		</div>
-		<div class="update-box">
-		</div>
 		<div class="center">
+			<div class="update-box">
+			</div>
 			<div class="menu-items"> 
 			</div>
 		</div>
@@ -59,11 +59,22 @@
 			};
 
 			function checkAuth() {
+				var adminButton = document.getElementById('admin-btn');
 				var isAuthenticated = localStorage.getItem('auth');
 				var itemCheckbox = document.querySelectorAll('.item-checkbox');
 				var editBtn = document.querySelectorAll('#edit-btn');
 		
 				if (isAuthenticated === 'true') {
+					adminButton.innerText = '로그아웃';
+					adminButton.onclick = function() {
+						var confirmLogout = confirm('로그아웃 하시겠습니까?');
+
+						if (confirmLogout) {
+							localStorage.setItem('auth', 'false');
+							location.reload(); 
+						}
+					};
+
 					itemCheckbox.forEach(action => {
 						action.removeAttribute('hidden');
 					});
