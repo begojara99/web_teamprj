@@ -44,3 +44,33 @@ padding-bottom: 0px;
 .map-guide {
     margin-top: 10px;
 }
+
+
+.background-images {
+position: relative;
+width: 100vw;
+height: 100vh;
+}
+
+.image {
+position: absolute;
+width: 100px; /* Adjust size as needed */
+height: 100px; /* Adjust size as needed */
+/* Set background images */
+}
+
+.bear1 {
+background-image: url('./../images/bearcandle1.png');
+}
+
+.bear2 {
+background-image: url('./../images/bearcandle2.png');
+}
+
+.bomb1 {
+background-image: url('./../images/bombcandle1.png');
+}
+
+.bomb2 {
+background-image: url('./../images/bombcandle2.png');
+}

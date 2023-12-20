@@ -17,12 +17,12 @@
 					<img src="./images/home.png" alt="Honghee" class="logo">
 				</a>
 			</div>
-			<div id="menu-icon">
+			<div id="menu-icon"> 
 				<img src="./images/hamburger.png" alt="menu">
 			</div>
 		</header>
 	
-		<div id="modal" class="modal">
+		<div id="modal" class="modal swashIn">
 			<div class="modal-content">
 				<a class="tab" href="./guide.html">매장 안내</a>
 				<a class="tab" href="./menu.html">메뉴 정보</a>
@@ -31,13 +31,15 @@
 				<span id="close" class="close">&times;</span>
 			</div>
 		</div>
-		<div class="center">
-			<div class="update-box">
-			</div>
-			<div class="menu-items"> 
+		<div class="center-maker">
+			<div class="center">
+				<div class="update-box">
+				</div>
+				<div class="menu-items"> 
+				</div>
 			</div>
 		</div>
-	
+		
 		<script>
 			// 로컬 스토리지 지우기
 			//window.addEventListener('beforeunload', function(event) {
@@ -96,11 +98,6 @@
 			}
 			closeBtn.onclick = function() {
 				modal.style.display = "none";
-			}
-			window.onclick = function(event) {
-				if (event.target == modal) {
-					modal.style.display = "none";
-				}
 			}
 
 			const menuData = {
@@ -191,21 +188,21 @@
 			const menuContainer = document.querySelector('.menu-items');
 
 			menuData.data.forEach(item => {
-			const menuItem = document.createElement('div');
-			menuItem.classList.add('menu-item');
+				const menuItem = document.createElement('div');
+				menuItem.classList.add('menu-item');
 
-			menuItem.innerHTML = `
-				<div class="item-content">
-					<input type="checkbox" class="item-checkbox" hidden>
-					<img src="${item.img}" alt="${item.name}">
-					<h3>${item.name}</h3>
-					<p>가격: ${item.price}원</p>
-					<p class="item-info">${item.info}</p>
-				</div>
-				<button id="edit-btn" hidden>수정</button>
-			`;
+				menuItem.innerHTML = `
+					<div class="item-content">
+						<input type="checkbox" class="item-checkbox" hidden>
+						<img src="${item.img}" alt="${item.name}">
+						<h3>${item.name}</h3>
+						<p>가격: ${item.price}원</p>
+						<p class="item-info">${item.info}</p>
+					</div>
+					<button id="edit-btn" hidden>수정</button>
+				`;
 
-			menuContainer.appendChild(menuItem);
+				menuContainer.appendChild(menuItem);
 			});
 
 			// 삭제
@@ -238,6 +235,8 @@
 				updateBox.appendChild(addButton);
 			}
 
+
+			// 케이크 정보 알려주기
 			const itemContents = document.querySelectorAll('.item-content');
 
 			itemContents.forEach(item => {
